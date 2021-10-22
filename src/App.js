@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import ListExpenses from './components/ListExpenses/ListExpenses';
 import NewExpense from './components/NewExpense/NewExpense';
