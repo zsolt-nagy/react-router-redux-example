@@ -3,63 +3,37 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from './store';
+import { addExpense } from './actions/actions';
 
-import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 // REDUX Experiment
-const initialState = {
-  expenses: [],
-  nextExpenseId: 1
-}
 
 
-function addExpenseReducer(state = initialState, action) {
-  if (action.type === 'ADD_EXPENSE') {
-    const newExpenses = [
-      ...state.expenses, 
-      {...action.payload, id: state.nextExpenseId}
-    ];
-    return {
-      expenses: newExpenses,
-      nextExpenseId: state.nextExpenseId + 1
-    }
-  }
 
-  return state;
-}
-
-const action = {
-  type: 'ADD_EXPENSE',
-  payload: {
+const action = addExpense({
     itemName: 'Printer',
     itemPrice: 19800, // in cents
     quantity: 1
-  }
-}
+});
 
-const store = configureStore({ reducer: addExpenseReducer });
+
 console.log(store);
 console.log(store.getState());
 store.dispatch(action);
 console.log(store.getState());
-store.dispatch({
-  type: 'ADD_EXPENSE',
-  payload: {
+store.dispatch(addExpense({
     itemName: 'Expensive collectors card',
     itemPrice: 25519800, // in cents
     quantity: 1
-  }
-});
+  }));
 console.log(store.getState());
-store.dispatch({
-  type: 'ADD_EXPENSE',
-  payload: {
+store.dispatch(addExpense({
     itemName: '1000 sheets of paper',
     itemPrice: '499', // in cents
     quantity: 1000
-  }
-});
+  }));
 console.log(store.getState());
 
 
