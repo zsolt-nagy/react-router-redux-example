@@ -1,5 +1,4 @@
-import addExpenseReducer from './reducers/addExpenseReducer';
-import deleteExpenseReducer from './reducers/deleteExpenseReducer';
+import expensesReducer from './reducers/expensesReducer';
 import { configureStore } from '@reduxjs/toolkit';
 import { ADD_EXPENSE, DELETE_EXPENSE } from './actions/action_constants';
 
@@ -9,14 +8,7 @@ const initialState = {
     nextExpenseId: 1
 }
 
-const rootReducer = (state = initialState, action) => {
-    if (action.type === DELETE_EXPENSE) {
-        return deleteExpenseReducer(state, action);
-    } else if (action.type === ADD_EXPENSE) {
-        return addExpenseReducer(state, action);
-    }
-    return state;
-}
+const rootReducer = (state = initialState, action) => expensesReducer(state, action);
 
 const store = configureStore({ reducer: rootReducer });
 
