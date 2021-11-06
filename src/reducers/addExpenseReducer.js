@@ -1,10 +1,7 @@
-const initialState = {
-    expenses: [],
-    nextExpenseId: 1
-}
+import { ADD_EXPENSE } from '../actions/action_constants';
 
-export default function addExpenseReducer(state = initialState, action) {
-    if (action.type === 'ADD_EXPENSE') {
+export default function addExpenseReducer(state, action) {
+    if (action.type === ADD_EXPENSE) {
       const newExpenses = [
         ...state.expenses, 
         {...action.payload, id: state.nextExpenseId}
