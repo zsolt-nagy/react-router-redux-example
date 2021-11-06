@@ -1,4 +1,4 @@
-import { ADD_EXPENSE } from '../actions/action_constants';
+import { ADD_EXPENSE, DELETE_EXPENSE } from '../actions/action_constants';
 
 
 export default function expensesReducer(state, action) {
@@ -10,6 +10,14 @@ export default function expensesReducer(state, action) {
       return {
         expenses: newExpenses,
         nextExpenseId: state.nextExpenseId + 1
+      }
+    } else if (action.type === DELETE_EXPENSE) {
+      const newExpenses = state.expenses.filter(expense =>
+        expense.id != action.payload.id
+      );
+      return {
+        expenses: newExpenses,
+        nextExpenseId: state.nextExpenseId
       }
     }
   

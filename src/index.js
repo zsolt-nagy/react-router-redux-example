@@ -4,37 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
 import { Provider } from 'react-redux';
 import store from './store/store';
-import { addExpense } from './actions/action_creators'; 
-
-
-
-const action = addExpense({
-  itemName: 'Printer',
-  itemPrice: 19800, // in cents
-  quantity: 1
-});
-
-
-console.log(store);
-console.log(store.getState());
-store.dispatch(action);
-console.log(store.getState());
-store.dispatch(addExpense({
-  itemName: 'Expensive collectors card',
-  itemPrice: 25519800, // in cents
-  quantity: 1
-}));
-console.log(store.getState());
-store.dispatch(addExpense({
-  itemName: '1000 sheets of paper',
-  itemPrice: '499', // in cents
-  quantity: 1000
-}));
-console.log(store.getState());
-
 
 ReactDOM.render(
   <React.StrictMode>
