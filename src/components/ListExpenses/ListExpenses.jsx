@@ -8,7 +8,7 @@ export default function ListExpenses(props) {
     const tableRows = expenses
         .filter( expense => expense.id == expenseType || expenseType === 'All' )
         .map( expense => (
-            <tr>
+            <tr key={expense.id}>
                 <td>{expense.id}</td>
                 <td>{expense.itemName}</td>
                 <td>{expense.itemPrice}</td>
